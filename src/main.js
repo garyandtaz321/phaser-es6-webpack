@@ -4,13 +4,10 @@ import Phaser from 'phaser'
 
 import BootState from './states/boot'
 import SplashState from './states/splash'
-<<<<<<< HEAD
 import GameState from './states/game'
 import IntroState from './states/intro'
-=======
-import IntroState from './states/intro'
-import GameState from './states/game'
->>>>>>> fe99299fb595315d472876d508f19c07c7ef43ad
+
+
 
 class Game extends Phaser.Game {
 
