@@ -6,6 +6,9 @@ var phaserModule = path.join(__dirname, '/node_modules/phaser/')
 var phaser = path.join(phaserModule, 'build/custom/phaser-split.js')
 var pixi = path.join(phaserModule, 'build/custom/pixi.js')
 var p2 = path.join(phaserModule, 'build/custom/p2.js')
+var phasertextModule = path.join(__dirname, '/node_modules/phaser-input/')
+var PhaserText = path.join(phasertextModule , 'build/phaser-input.js')
+
 
 var definePlugin = new webpack.DefinePlugin({
   __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'false'))
@@ -17,7 +20,7 @@ module.exports = {
       'babel-polyfill',
       path.resolve(__dirname, 'src/main.js')
     ],
-    vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
+    vendor: ['pixi', 'p2', 'phaser', 'webfontloader', 'PhaserText']
 
   },
   output: {
@@ -61,6 +64,7 @@ module.exports = {
       'phaser': phaser,
       'pixi': pixi,
       'p2': p2
+      'PhaserText' : PhaserText
     }
   }
 }
