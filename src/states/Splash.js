@@ -14,11 +14,18 @@ export default class extends Phaser.State {
     // load your assets
     //
     this.load.image('mushroom', 'assets/images/mushroom2.png')
+<<<<<<< HEAD
     
+=======
+    this.load.image('blackbar', 'assets/intro/blackbar.png')
+    this.load.spritesheet('FBI', 'assets/intro/fbi.png', 420, 500)
+    this.load.spritesheet('trumpback', 'assets/intro/trumpback.png', 575, 475)
+    this.load.audio('intromus', 'assets/intro/introsong.mp3')
+>>>>>>> fe99299fb595315d472876d508f19c07c7ef43ad
   }
 
   create () {
-    this.state.start('Game')
+    this.state.start('Intro')
   }
 
 }
