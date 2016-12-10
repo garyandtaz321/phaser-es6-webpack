@@ -17,15 +17,10 @@ Intro.prototype = {
     },
 
     create: function () {
+        this.world.setBounds(0, 0, 800, 600);
         this.stage.backgroundColor = '#FFF8FF';
         music = this.add.audio('intromus');
         music.play();
-
-        this.bartop = this.add.sprite(0, 0, 'blackbar');
-        this.bartop.scale.x = 2;
-        this.barbottom = this.add.sprite(0, 400, 'blackbar');
-        this.barbottom.scale.x = 2;
-        this.barbottom.scale.y = 2.5;
 
         this.time.events.add(Phaser.Timer.SECOND * 4.46, () => {
             this.fbi = this.add.image(-125, this.world.centerY - 175, 'FBI');
@@ -49,6 +44,12 @@ Intro.prototype = {
 
             this.trumptween.to({ x: 110 }, 1200, 'Linear', true, 0);
         }, this);
+
+        this.bartop = this.add.sprite(0, 0, 'blackbar');
+        this.bartop.scale.x = 2;
+        this.barbottom = this.add.sprite(0, 400, 'blackbar');
+        this.barbottom.scale.x = 2;
+        this.barbottom.scale.y = 2.5;
 
         this.time.events.add(Phaser.Timer.SECOND * 5.674230, () => {
             this.jump.play();
