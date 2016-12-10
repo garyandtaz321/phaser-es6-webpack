@@ -82,7 +82,7 @@ Intro.prototype = {
         }, this);
 
         this.time.events.add(Phaser.Timer.SECOND * 15.5, () => {
-            this.game.state.start('Menu');
+            this.game.state.start('Game');
         }, this);
 
         this.input.onDown.add(this.skip, this);
@@ -92,7 +92,7 @@ Intro.prototype = {
     },
 
     skip: function () {
-        this.game.state.start('Menu');
+        this.game.state.start('Game');
         music.pause();
     }
 }
