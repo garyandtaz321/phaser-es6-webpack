@@ -9,7 +9,6 @@ export default class extends Phaser.State {
   preload () {}
 
   create () {
-
     this.game.add.plugin(Fabrique.Plugins.InputField);
     let banner = this.add.text(this.game.world.centerX, this.game.height - 30, 'Phaser + ES6 + Webpack')
     banner.font = 'Nunito'
