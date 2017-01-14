@@ -1,16 +1,18 @@
 import Phaser from 'phaser'
 import {setResponsiveWidth} from '../utils'
 import PhaserI from 'PhaserText'
-var textbox
 
-var textInput =  function(game){
+var textbox = {};
+var textInput =  function(game ){
 this._game = game
+
 }
 
+
 textInput.prototype = {
-    createTextInput(x , y , font , placeInput, minInput, maxInput, width , fill ,type){
+    createTextInput(x , y , font , placeInput, minInput, maxInput, width , fill ,type, Name){
 this._game.add.plugin(Fabrique.Plugins.InputField);
-textbox = game.add.inputField(x, y, {
+textbox[ Name ] = game.add.inputField(x, y, {
     font: font,
     fill: fill,
     fontWeight: 'bold',
@@ -25,10 +27,15 @@ textbox = game.add.inputField(x, y, {
 
 
     },
-    update()
+    update(Name)
         {
-            console.log(textbox.value);
+console.log(textbox[Name].value)
         },
+
+    getTextValue(Name)
+    {
+return textbox[Name].value
+    }
 
 }
 
