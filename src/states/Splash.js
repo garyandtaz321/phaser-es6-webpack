@@ -1,7 +1,9 @@
 import Phaser from 'phaser'
 import { centerGameObjects } from '../utils'
-
+import localStorageManager from '../Objects/localStorageManager'
+var Storage
 export default class extends Phaser.State {
+
   init () {}
 
   preload () {
@@ -25,6 +27,9 @@ export default class extends Phaser.State {
   }
 
   create () {
+    Storage = new localStorageManager(this.game);
+Storage.createcheckLocalStorage('Username', 'Billy')
+Storage.createcheckLocalStorage('Money', 1000000)
     this.state.start('Intro')
   }
 

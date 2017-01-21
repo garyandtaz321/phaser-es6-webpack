@@ -1,19 +1,18 @@
 import Phaser from 'phaser'
 import {setResponsiveWidth} from '../utils'
 
-var localStorageManager =  function(game ){
+var localStorageManager =  function( game ){
 this._game = game
 
 }
 
 localStorageManager.prototype = {
 
-createcheckLocalStorage(StorageID, value)
-{
-    if(localStorage.getItem(StorageID) == null){
+createcheckLocalStorage(StorageID, value){
+    if (localStorage.getItem(StorageID) == null){
 localStorage.setItem(StorageID, value);    StorageID = value;
 console.log("Created StorageID with name: " + StorageID);
-}else{
+ }else {
     console.log("Object: " + StorageID + " already in storage")
 }
 
@@ -22,20 +21,31 @@ console.log("Created StorageID with name: " + StorageID);
 
 savetoLocalStorage(StorageID, value){
      localStorage.getItem(StorageID);
-    if(localStorage.getItem(StorageID) == null){
+    if (localStorage.getItem(StorageID) == null){
         console.log("StorageID: " + StorageID + " does not exist, please run function createcheckLocalStorage() or check the name of the varible")
-    }else{
+    } else {
         localStorage.setItem(StorageID,value);
     }
 },
 
 checkLocalStorage(StorageID){
  localStorage.getItem(StorageID);
-    if(localStorage.getItem(StorageID) == null){
+    if (localStorage.getItem(StorageID) == null){
         console.log("StorageID: " + StorageID + " does not exist, please run function createcheckLocalStorage() or check the name of the varible")
-    }else{
+    } else {
         console.log(localStorage.getItem(StorageID));
     }
+},
+
+getLocalStorage(storageID) {
+    const val = localStorage.getItem(storageID);
+
+    if (!val) {
+        console.warn("StorageID: " + StorageID + " does not exist, please run function createcheckLocalStorage() or check the name of the varible")
+        return;
+    }
+    
+    return val;
 }
 
 
