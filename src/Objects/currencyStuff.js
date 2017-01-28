@@ -10,7 +10,7 @@ export class CurrencyStuff {
     constructor (game) {
         this.game = game;
         this.storage = new localStorageManager(this.game);
-        this.money = this.storage.getLocalStorage('Money');
+        this.money = Number(this.storage.getLocalStorage('Money'));
     }
 
     getMoney() {
@@ -23,15 +23,16 @@ export class CurrencyStuff {
 
     calcMoney(risk, pCash) {
          if (this.game.rnd.integerInRange(0, 100) <= risk){
-              window.alert("You have been discovered! , you lost: " + pCash + " from your bank account! Your balance is now: " + this.money);
+
             //Display Message saying you Lost
             this.money -= pCash;
             localStorage.setItem('Money',this.money);
+              window.alert("You have been discovered! , you lost: " + pCash + " from your bank account! Your balance is now: " + this.money);
         } else {
-            window.alert("The deal went undetected, you got: " + pCash + " from the deal. Your balance is now: " + this.money);
-            this.money += pCash;
+            this.money += (+pCash);
             //Display Message saying you won X money
-            localStorage.setItem('Money',this.money);
+            localStorage.setItem('Money',Number(this.money));
+                        window.alert("The deal went undetected, you got: " + pCash + " from the deal. Your balance is now: " + this.money);
             
         }
     }
